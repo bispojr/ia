@@ -1,0 +1,293 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+%o
+%e
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb} %Este e o AMS paquete
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+
+\usepackage[T1]{fontenc}
+
+%\usepackage{beamerthemesplit}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  %\definecolor{colortexto}{RGB}{153,100,0}
+  \definecolor{colortexto}{RGB}{0,0,0}
+  
+% \setbeamersize{sidebar width left=0.5cm}
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+%   \setbeamercolor{title}{fg=colortitulo!80!black,bg=blue!20!white}
+%   \setbeamercolor{title}{bg=colortitulo!20!black}
+%   \setbeamercolor{background canvas}{bg=colortitulo}
+%   \setbeamercolor{frametitle}{fg=red}
+
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+  %\logo{\includegraphics[width=2cm]{Images/ratonfuerte.jpg}}
+
+
+%   \usefonttheme[onlysmall]{structurebold}
+%   \usecolortheme{seahorse}
+%  \usecolortheme[named={YellowOrange}]{structure}
+%   \usecolortheme[named={Blue}]{structure}
+%   \usecolortheme{crane}
+%   \useoutertheme{default}
+}
+
+\title{Agentes Inteligentes} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{28 de setembro de 2016} }
+
+\logo{\includegraphics[width=1cm]{images/ufgJataiLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\begin{frame}{Plano de Aula}
+		\tableofcontents
+		%\tableofcontents[hideallsubsections]
+	\end{frame}
+	
+%------------------------------------------
+	\section{Pensamento}
+	\begin{frame}{Pensamento}
+  		\begin{center}
+    		\includegraphics[width=7cm]{images/pensamento.png}
+  		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Pensamento}
+		\begin{columns}
+			\column{.4\textwidth}  		
+		  		\begin{center}
+		    		\includegraphics[height=.5\textheight]{images/goethe.png}
+		  		\end{center}
+			\column{.6\textwidth}  		
+				\begin{block}{Frase}
+					\begin{center}
+						{\large O homem que sabe reconhecer os limites da sua própria inteligência está mais perto da perfeição}
+					\end{center}
+				\end{block}		  		
+		  		\begin{block}{Quem?}
+		  			\begin{center}
+						{\bf Johann Goethe (1749-1832)} \\ Escritor e pensador alemão.
+					\end{center}
+				\end{block}
+		\end{columns}
+	\end{frame}
+	
+%------------------------------------------
+	\section{Revisão}
+	\subsection{O que é Inteligência Artificial?}
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Haugeland, 1985}
+			``O novo e interessante esforço para fazer os computadores pensarem... máquinas com mentes, no sentido total e literal''
+		\end{block}
+		\begin{block}{Charniak e McDermott, 1985}
+			``O estudo das faculdades mentais pelo uso de modelos computacionais''
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Kurweil, 1990}
+			``A arte de criar máquinas que executam funções que exigem inteligência quando executadas por pessoas''
+		\end{block}
+		\begin{block}{Poole {\it et al.}, 1998}
+			``A Inteligência Computacional é o estudo do projeto de agentes inteligentes''
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{itemize}
+			\item Pensar {\it versus} Agir
+			\item Forma humana {\it versus} Forma racional
+				\begin{itemize}
+					\item Pensar de forma humana
+					\item Pensar de forma racional
+					\item Agir de forma humana
+					\item Agir de forma racional
+				\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Haugeland, 1985}
+			``O novo e interessante esforço para fazer os computadores pensarem... máquinas com mentes, no sentido total e literal''
+		\end{block}
+		\begin{exampleblock}{Pensar de forma humana}
+			Modelagem cognitiva
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Charniak e McDermott, 1985}
+			``O estudo das faculdades mentais pelo uso de modelos computacionais''
+		\end{block}
+		\begin{exampleblock}{Pensar de forma racional}
+			Lógica e Inferência
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Kurweil, 1990}
+			``A arte de criar máquinas que executam funções que exigem inteligência quando executadas por pessoas''
+		\end{block}
+		\begin{exampleblock}{Agir de forma humana}
+			Teste de Turing
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Poole {\it et al.}, 1998}
+			``A Inteligência Computacional é o estudo do projeto de agentes inteligentes''
+		\end{block}
+		\begin{exampleblock}{Agir de forma racional}
+			Agentes racionais
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Resumo das definições}
+			\begin{tabular}{c|cc}
+										& {\bf Humano} 			& {\bf Racionalidade} \\
+				\hline
+				{\bf Pensamento}		& Sistemas que pensam	& Sistemas que pensam \\
+										& como seres humamos	& racionalmente \\
+				\hline
+				{\bf Comportamento}		& Sistemas que agem 	& {\color{blue} Sistemas que agem}\\
+										& como seres humanos	& {\color{blue}racionalmente}\\
+				\hline
+			\end{tabular}
+		\end{block}	
+		\begin{exampleblock}{Definição utilizada na disciplina}
+			Sistemas que agem racionalmente
+		\end{exampleblock}					
+	\end{frame}
+	
+	\section{Agentes Inteligentes}
+	\begin{frame}{Agentes Inteligentes}
+		\begin{block}{Agente}
+			Um {\color{blue} \bf agente} é tudo o que pode ser considerado capaz de perceber seu {\color{blue} \bf ambiente} por meio de {\color{blue} \bf sensores} e de agir sobre esse ambiente por intermédio de {\color{blue} \bf atuadores}.
+		\end{block}	
+	\end{frame}
+	
+	\begin{frame}{Agentes Inteligentes}
+		\begin{center}
+    		\includegraphics[width=.8\textwidth]{images/esquema.png}
+  		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Agentes Inteligentes}
+		\begin{block}{Agente}
+			Um {\color{blue} \bf agente} é tudo o que pode ser considerado capaz de perceber seu {\color{blue} \bf ambiente} por meio de {\color{blue} \bf sensores} e de agir sobre esse ambiente por intermédio de {\color{blue} \bf atuadores}.
+		\end{block}
+		\begin{block}{Percepção}
+			\begin{itemize}						
+				\item O termo {\color{blue} \bf percepção} é uma referência às entradas perceptivas do agente em qualquer momento dado;
+				\item Uma {\color{blue} \bf sequência de percepções} do agente é a história completa de tudo o que o agente já percebeu.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Mundo do Aspirador de Pó}
+		\begin{center}
+    		\includegraphics[width=.8\textwidth]{images/aspirador.png}
+  		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Agentes Inteligentes}
+		\begin{block}{Função de agente}
+			É uma {\color{blue} \bf função} que descreve o comportamento do agente mapeando qualquer sequência de percepções específica para uma ação. 
+		\end{block}	\pause
+		\begin{block}{Programa de agente}
+			\begin{itemize}						
+				\item É uma {\color{blue} \bf implementação concreta} da descrição matemática abstrata da função de agente. Esta implementação {\color{blue} \bf depende da arquitetura} do agente.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Mundo do Aspirador de Pó}
+		\begin{center}
+    		\includegraphics[width=.8\textwidth]{images/tabela.png}
+  		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Medida de Desempenho}
+		\begin{block}{Medida de Desempenho}
+			É um {\color{blue} \bf critério} para se medir o sucesso do agente.
+		\end{block}	\pause
+		\begin{block}{A racionalidade depende...}
+			\begin{itemize}						
+				\item Da {\color{blue} \bf medida de desempenho};
+ 				\item Do conhecimento anterior do agente sobre o {\color{blue} \bf ambiente};
+ 				\item Das {\color{blue} \bf ações} que o agente pode executar;
+ 				\item Da sequência de {\color{blue} \bf percepções} do agente até o momento.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Logo a racionalidade é...}
+		\begin{block}{}
+			``Para cada {\color{blue} \bf sequência de percepções} possível, um agente racional deve selecionar uma {\color{blue} \bf ação} que venha maximizar sua {\color{blue} \bf medida de desempenho}, dada a evidência fornecida pela sequência de percepções e por qualquer {\color{blue} \bf conhecimento interno} do agente''.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Onisciência {\it versus} Racionalidade}
+		\begin{block}{Onisciência}
+			Um agente onisciente sabe o {\color{blue} \bf resultado real} de suas ações e pode agir de acordo em relação a ele.
+		\end{block}	\pause
+		\begin{block}{Racionalidade}
+			Um agente racional sabe o {\color{blue} \bf resultado esperado} de suas ações e pode agir de acordo em relação a ele.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Bônus (0,5 pt)}		 
+		\begin{block}{Seminário}
+			\begin{itemize}
+				\item Apresentação do Robocode (30 min):
+					\begin{itemize}
+						\item Apresentar o tutorial de William Rozin Gaspar;
+						\item Apresentar o Robocode na prática;
+						\item Mostrar como "pesar" o seu robô.
+					\end{itemize}
+			\end{itemize}
+		\end{block}
+	\end{frame}	
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
