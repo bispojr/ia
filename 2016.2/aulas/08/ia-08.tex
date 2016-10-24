@@ -1,0 +1,445 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+%o
+%e
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb} %Este e o AMS paquete
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+
+\usepackage[T1]{fontenc}
+
+%\usepackage{beamerthemesplit}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  %\definecolor{colortexto}{RGB}{153,100,0}
+  \definecolor{colortexto}{RGB}{0,0,0}
+  
+% \setbeamersize{sidebar width left=0.5cm}
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+%   \setbeamercolor{title}{fg=colortitulo!80!black,bg=blue!20!white}
+%   \setbeamercolor{title}{bg=colortitulo!20!black}
+%   \setbeamercolor{background canvas}{bg=colortitulo}
+%   \setbeamercolor{frametitle}{fg=red}
+
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+  %\logo{\includegraphics[width=2cm]{Images/ratonfuerte.jpg}}
+
+
+%   \usefonttheme[onlysmall]{structurebold}
+%   \usecolortheme{seahorse}
+%  \usecolortheme[named={YellowOrange}]{structure}
+%   \usecolortheme[named={Blue}]{structure}
+%   \usecolortheme{crane}
+%   \useoutertheme{default}
+}
+
+\title{Recuperação da Informação} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{24 de outubro de 2016} }
+
+\logo{\includegraphics[width=1cm]{images/ufgJataiLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\begin{frame}{Plano de Aula}
+		\tableofcontents
+		%\tableofcontents[hideallsubsections]
+	\end{frame}
+	
+%------------------------------------------
+	\section{Pensamento}
+	\begin{frame}{Pensamento}
+  		\begin{center}
+    		\includegraphics[width=7cm]{images/pensamento.png}
+  		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Pensamento}
+		\begin{columns}
+			\column{.4\textwidth}  		
+		  		\begin{center}
+		    		\includegraphics[height=.5\textheight]{images/aristoteles.png}
+		  		\end{center}
+			\column{.6\textwidth}  		
+				\begin{block}{Frase}
+					\begin{center}
+						{\large Nós somos aquilo que fazemos repetidamente. Excelência, então, não é um modo de agir, mas um hábito.}
+					\end{center}
+				\end{block}		  		
+		  		\begin{block}{Quem?}
+		  			\begin{center}
+						{\bf Aristóteles (384 a.C. - 322 a.C.)} \\ Filósofo e lógico grego.
+					\end{center}
+				\end{block}
+		\end{columns}
+	\end{frame}
+	
+%------------------------------------------
+	\section{Recuperação da Informação - RI}
+	\begin{frame}{Introdução à RI e Busca Web}
+		\begin{block}{O que é RI}
+			Recuperação da Informação ({\it Information Retrieval}) é a atividade de encontrar material (normalmente documentos) de natureza não-estruturada (normalmente textos) que satisfaz uma necessidade de informação a partir de grandes coleções (normalmente armazenadas em computadores).
+		\end{block} \pause
+		\begin{block}{Aplicações}
+			Associamos RI diretamente à busca web, mas existem outras aplicações:
+			\begin{itemize}
+				\item Busca por emails;
+				\item Busca por arquivos no seu PC;
+				\item Recuperação de informações legais.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{RI {\it versus} Banco de Dados}
+		\begin{block}{Dados estruturados}
+			Tendem a referir informações através de tabelas:
+			\begin{tabular}{c|c|c}
+				Empregado	&	Gerente	&	Salário 	\\
+				\hline
+				Smith		&	Jones	&	R\$ 50.000,00	\\
+				Chang		&	Smith	&	R\$ 60.000,00	\\
+				Ivy			&	Smith	&	R\$ 50.000,00	\\
+			\end{tabular}
+		\end{block} \pause
+		\begin{block}{Características...}
+			Normalmente é permitido realizar consultas exatas (através de texto) \\ \pause
+			\begin{center}
+				{\bf Exemplo:} Salário < 60000 AND Gerente = Smith
+			\end{center}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{RI {\it versus} Banco de Dados}
+		\begin{block}{Dados não-estruturados}
+			\begin{itemize}
+				\item Normalmente refere-se a textos livres;
+				\item Permite consultas por palavras-chave (incluindo operadores);
+				\item Modelo clássico de busca por documentos de texto.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Pressupostos básicos em RI}
+		\begin{block}{Coleção}
+			Um conjunto de documentos \\(assumimos ser estático, neste momento).
+		\end{block} \pause
+		\begin{block}{Objetivo}
+			Recuperar documentos com informação que é relevante para {\bf as necessidades de informação} do usuário e ajudá-lo a completar uma {\bf tarefa}.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Teste}
+		% Define block styles
+		\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+		    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+		\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+		    text width=6em, text centered, rounded corners, minimum height=4em]
+		\tikzstyle{line} = [draw, -latex']
+		\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=5cm,
+		    minimum height=2em, text width=8em,  text centered]
+		\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+		    
+		\begin{tikzpicture}[node distance = 2cm, auto]
+		    % Place nodes
+		    \node [block] (init) {Tarefa do usuário};
+		    \node [cloud, right of=init] (caprato) {Capturar um rato de forma correta (politicamente)}; \pause
+		    
+		    \node [block, below of=init] (need) {Necessidade de informação};
+		    \node [cloud, right of=need] (inforato) {Info sobre como capturar ratos}; 
+		    \path [line] (init) -- (need); \pause
+		    
+		    \node [io, below of=need] (query) {Consulta};
+		    \node [cloud, right of=query] (inforato) {\tt como capturar rato vivo};
+		    \path [line] (need) -- (query);
+		\end{tikzpicture}
+	\end{frame}
+	
+	\begin{frame}{Teste}
+		% Define block styles
+		\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+		    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+		\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+		    text width=6em, text centered, rounded corners, minimum height=4em]
+		\tikzstyle{line} = [draw, -latex']
+		\tikzstyle{blockright} = [rectangle, draw, fill=blue!20, 
+		    text width=6em, text centered, rounded corners, minimum height=4em, node distance=3cm]
+		\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=5cm,
+		    minimum height=2em, text width=8em,  text centered]
+		\tikzstyle{output} = [draw, ellipse,fill=blue!20,
+		    minimum height=2em, text width=5em,  text centered]
+		\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+		    
+		\begin{tikzpicture}[node distance = 2cm, auto]
+		    % Place nodes
+		    \node [io] (query) {Consulta};
+		    \node [cloud, right of=query] (inforato) {\tt como capturar rato vivo}; \pause
+		    
+		    \node [block, below of=query] (engine) {Mecanismo de busca};
+		    \path [line] (query) -- (engine); \pause
+		    
+		    \node [blockright, right of=engine] (collection) {Coleção};
+		    \path [line] (collection) -- (engine); \pause
+		    
+		    \node [output, below of=engine] (results) {Resultados};
+		    \path [line] (engine) -- (results); \pause
+		    
+		    \node [blockright, right of=results] (refine) {Refinamento da consulta};
+		    \path [line] (results) -- (refine);
+		    \path [line] (refine) -- (engine);
+		\end{tikzpicture}
+	\end{frame}
+
+	\subsection{Matriz de incidência termo-documento}
+	\begin{frame}{Dados não-estruturados em 1620}
+		\begin{block}{Obras de Shakespeare}
+			\begin{itemize}
+				\item Quais peças de Shakespeare contêm as palavras \\
+				'Brutus' e 'Caesar', mas não 'Capurnia'? \pause
+				\item Poderíamos fazer um {\tt grep all} das \\
+				peças de Shakespeare para 'Brutus' e 'Caesar', \\
+				e daí retirar as linhas que contêm 'Calpurnia'? \pause
+				\item Por que não deveríamos fazer isto? \pause
+				\begin{itemize}
+					\item Lento (para coleções grandes); \pause
+					\item NOT 'Calpurnia' não é trivial; \pause
+					\item Outras operações não são viáveis \\
+					(e.g. encontrar a palavra 'Romans' próximo de 'countrymen').
+				\end{itemize}
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Matriz incidência termo-documento}
+		\begin{center}
+			\includegraphics[width=\textwidth]{images/fig1-1.png}
+		\end{center} \pause
+		\begin{block}{Pergunta...}
+			Como fazer a consulta: Brutus AND Caesar BUT NOT Calpurnia ?
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Vetores de incidência}
+		\begin{block}{Uma solução...}
+			\begin{itemize}
+				\item Temos vetores 0/1 para cada termo; \pause
+				\item Obtenha os vetores \\{\bf Brutus}, {\bf Caesar} e {\bf Calpurnia} (seu complemento): \pause
+				\begin{itemize}
+					\item Realize a operação binária AND entre os vetores: \\ \pause 110100 AND 110111 AND 101111 = 100100.
+				\end{itemize}
+			\end{itemize}		
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Respostas à consulta}
+		\begin{center}
+			\includegraphics[width=\textwidth]{images/fig1-2.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}[shrink]{Coleções muito grandes}
+		\begin{block}{Problema...}
+			\begin{itemize}
+				\item Considere $N =$ 1 milhão de documentos, \\
+				cada um com 1000 palavras em média; \pause
+				\item Considere que cada palavra tenha, em média, 6 bytes (incluindo espaços e pontuação); \pause
+				\item Temos 6GB de dados em documentos; \pause
+				\item Suponha que haja 500K termos distintos entre si; \pause
+				\item 500K $\times$ 1M tem meio trilhão de 0's e 1's!!! \pause
+				\item Mas não mais que um bilhão de 1's ({\color{red} Por quê})? \pause
+				\item Esta matriz é extremamente esparsa;
+			\end{itemize}
+		\end{block} \pause
+		\begin{exampleblock}{Qual a melhor representação?}
+			Guardar apenas as células com 1's.
+		\end{exampleblock}
+	\end{frame}
+	
+	\subsection{Índice Invertido}
+	\begin{frame}{Índice Invertido}
+		\begin{center}
+			\includegraphics[width=\textwidth]{images/fig1-3-0.png}
+		\end{center}
+		\begin{block}{Como fazer...}
+			\begin{itemize}
+				\item Para cada termo $t$, devemos armazenar uma lista de todos os documentos que contêm $t$; \pause
+				\item Identifique cada documento por um docID \\(um identificador único do documento); \pause
+				\item {\color{red} Poderíamos utilizar vetores de tamanho fixo neste caso?}
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Índice Invertido}
+		\begin{center}
+			\includegraphics[width=\textwidth]{images/fig1-3-1.png}
+		\end{center}
+		\begin{block}{Como fazer...}
+			\begin{itemize}
+				\item Precisamos criar uma lista de {\it posting}s; \pause
+				\begin{itemize}
+					\item Em disco, o armazenamento contíguo é melhor e mais comum; \pause
+					\item Em memória, podemos utilizar listas ligadas ou \\vetores de tamanho variável!
+				\end{itemize}
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Índice invertido}
+		\begin{block}{Passo-a-passo..}
+			\begin{enumerate}
+				\item Colete os documentos a serem indexados:\\ 
+				\fbox{Friends, Romans, countrymen.} \fbox{So let it be with Caesar} ... \pause
+				\item Quebre o texto, transformando cada documento em uma \\lista de {\it token}s:\\ 
+				\fbox{Friends} \fbox{Romans} \fbox{countrymen} \fbox{So} ... \pause
+				\item Faça o pré-processamento linguístico, produzindo uma lista de {\it token}s normalizados:\\
+				\fbox{friend} \fbox{roman} \fbox{countryman} \fbox{so} ... \pause
+				\item Indexe os documentos a partir da ocorrência dos termos, criando um índice invertido, consistindo de um dicionário e {\it posting}s.
+			\end{enumerate}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Índice Invertido}
+		\begin{center}
+			\includegraphics[width=\textwidth]{images/fig1-4-0.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Índice Invertido}
+		\begin{center}
+			\includegraphics[width=\textwidth]{images/fig1-4-1.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Índice Invertido}
+		\begin{center}
+			\includegraphics[width=1.1\textwidth]{images/fig1-4-2.png}
+		\end{center}
+	\end{frame}
+	
+	\subsection{Processamento de consultas em RI}
+	\begin{frame}{Construímos apenas o índice...}
+		\begin{block}{}
+			\begin{itemize}
+				\item O que fazemos para processar uma consulta? \pause
+				\item Quais tipos de consultas nós podemos processar?
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Processamento de consultas: AND}
+		\begin{block}{Brutus AND Caesar}
+			\begin{itemize}
+				\item Localize Brutus no dicionário $\rightarrow$ recupere os seus {\it posting}s; \pause	
+				\item Localize Caesar no dicionário $\rightarrow$ recupere os seus {\it posting}s;	\pause
+				\item ``Funda'' as duas listas de {\it posting}s $\rightarrow$ \\faça a interseção dos conjuntos de documentos;
+				\pause
+				\begin{center}
+					\includegraphics[height=.15\textheight]{images/fig1-3-2.png}
+				\end{center}
+			\end{itemize}					
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{A fusão ({\it merge})}
+		\begin{block}{}
+			Caminhe através das duas listas em tempo linear em relação ao tamanho das listas.
+		\end{block}
+		\begin{center}
+			\includegraphics[height=.15\textheight]{images/fig1-3-2.png}
+		\end{center} \pause
+		\begin{exampleblock}{}
+			Se os tamanhos das listas forem $x$ e $y$, \\a fusão levará $O(x+y)$ operações.
+		\end{exampleblock} \pause
+		\begin{alertblock}{Importante!!!}
+			As listas de {\it posting}s precisam estar ordenadas pelo docID.
+		\end{alertblock}
+	\end{frame}
+	
+	\begin{frame}{Algoritmo de fusão}
+		\begin{center}
+			\includegraphics[height=.8\textheight]{images/intersect.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Consultas por frases}
+		\begin{block}{}
+			\begin{itemize}
+				\item Responder consultas como ``stanford university'' (como uma frase); \pause
+				\item Então a sentença ``I went to university at Stanford? não é uma ocorrência; \pause
+				\item O conceito de consultas por frases tem sido facilmente compreendido pelos usuários; \pause
+				\item Uma das poucas ideias de ``busca avançada'' que funciona na prática; \pause
+				\item Muitas das consultas são implicitamente consultas por frases; \pause
+				\item Para isto, não é suficiente armazenar apenas entradas \\$\langle$ termo : docs $\rangle$.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Consultas por frases}
+		\begin{center}
+			\includegraphics[height=.5\textheight]{images/be.png}
+		\end{center} \pause
+		\begin{block}{Pergunta?}
+			Quais dos documentos 1, 2, 4 e 5 pode conter ``be or not to be''?
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Referência bibliográfica}
+		\begin{columns}
+			\column{.4\textwidth}  		
+			\begin{center}
+				\includegraphics[height=.7\textheight]{images/irbook.png}
+			\end{center}
+			\column{.6\textwidth}  		
+			\begin{block}{Livro}
+				\begin{center}
+					{\large {\bf Information Retrieval},\\Stanford University, \\Christopher Manning {\it et al}.}
+				\end{center}
+			\end{block}		  		
+			\begin{block}{Link}
+				\begin{center}
+					Acesso em \url{http://nlp.stanford.edu/IR-book/}
+				\end{center}
+			\end{block}
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
