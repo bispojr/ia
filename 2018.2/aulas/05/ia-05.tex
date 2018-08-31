@@ -1,0 +1,136 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+\usepackage{enumitem}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+ 
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+}
+
+\title{Resolução de Problemas por meio de Busca} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{31 de agosto de 2018} }
+
+\logo{\includegraphics[width=1cm]{images/ufjLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\section{Instrução pelos Colegas}
+	
+	\begin{frame}{Questão 004}	
+		\begin{block}{[Q004]}
+			Sobre a definição de problema, qual das alternativas abaixo \underline{não} é um dos componentes da definição?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item estado inicial
+			\item ações possíveis
+			\item solução ótima
+			\item teste de objetivo
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 005}	
+		\begin{block}{[Q005]}
+			Uma solução para um problema é um caminho desde o estado inicial até um estado objetivo. Chamamos de solução ótima aquela que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item tem o menor custo de caminho entre todas as soluções.
+			\item tem um custo de caminho satisfatório para o usuário.
+			\item é um caminho que alcança o estado objetivo.
+			\item é um caminho que tem a menor quantidade de nós.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 006}	
+		\begin{block}{[Q006]}
+			É \underline{incorreto} afirmar sobre a árvore de busca que ela...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item represente todas as possibilidades de caminhos possíveis.
+			\item seja igual ao espaço de estados.
+			\item possa ter ramos infinitos.
+			\item tenha, em cada um de seus nós, a representação de um estado.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 007}	
+		\begin{block}{[Q007]}
+			Para avaliar o desempenho de um algoritmo de busca específico, qual aspecto não é relevante para se considerar?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item completeza
+			\item otimização
+			\item complexidade de tempo
+			\item descrição do problema
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 008}	
+		\begin{block}{[Q008]}
+			Em relação à busca cega, qual das alternativas abaixo indica a estratégia de busca que combina a busca em largura com a busca em profundidade?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item busca de custo uniforme
+			\item busca por aprofundamento iterativo
+			\item busca em profundidade limitada			
+			\item busca bidirecional
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 009}	
+		\begin{block}{[Q009]}
+			Em relação à busca cega, qual das alternativas abaixo indica a estratégia de busca que certamente \underline{não} garante a completeza?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item busca em largura
+			\item busca de custo uniforme
+			\item busca em profundidade
+			\item busca por aprofundamento iterativo
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
