@@ -1,0 +1,100 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+\usepackage{enumitem}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+ 
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+}
+
+\title{Agentes Inteligentes} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{17 de agosto de 2018} }
+
+\logo{\includegraphics[width=1cm]{images/ufjLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\section{Instrução pelos Colegas}
+	
+	\begin{frame}{Questão 001}	
+		\begin{block}{[Q001]}
+			Sobre agentes e ambientes, é \underline{incorreto} dizer que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item os agentes agem sobre o ambiente por meio de atuadores.
+			\item os agentes percebem o ambiente por meio de sensores.
+			\item a percepção refere-se às entradas perceptivas do agente em um dado instante.
+			\item a ação de um agente depende das percepções recebidas e não recebidas dos sensores.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 002}	
+		\begin{block}{[Q002]}
+			Sobre a função de agente, é \underline{correto} afirmar que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item é uma implementação concreta do comportamento do agente.
+			\item ela mapeia qualquer sequência de percepções específica para uma ação.
+			\item ela recebe como entrada uma percepção momentânea vinda do ambiente.
+			\item ela retorna como saída uma sequência de ações que serão executadas pelo agente.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 003}	
+		\begin{block}{[Q003]}
+			Sobre a racionalidade, é \underline{incorreto} afirmar que ela depende...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item da quantidade de sensores que um agente tem à disposição.
+			\item das ações que o agente pode executar.
+			\item da medida de desempenho que define o critério de sucesso.
+			\item da sequência de percepções do agente até o momento.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
