@@ -1,0 +1,231 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+\usepackage[inline]{enumitem}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+ 
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+}
+
+\title{Redes Neurais Artificiais} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{31 de agosto de 2018} }
+
+\logo{\includegraphics[width=1cm]{images/ufjLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\section{Instrução pelos Colegas}
+	
+	\begin{frame}{Questão 010}	
+		\begin{block}{[Q010]}
+			Seja o modelo matemático simples para um neurônio conforme apresentado abaixo. 
+			\begin{center}
+				\includegraphics[width=.7\textwidth]{images/neuronio}
+			\end{center}
+			Em quantas classes distintas um neurônio consegue classificar?
+		\end{block}
+		\begin{enumerate*}[label=(\Alph*)]
+			\item 1 \mbox{ }
+			\item 2 \mbox{ }
+			\item 3 \mbox{ }
+			\item 4 \mbox{ }
+		\end{enumerate*}
+	\end{frame}
+
+	\begin{frame}{Questão 011}	
+		\begin{block}{[Q011]}
+			Seja o modelo matemático simples para um neurônio conforme apresentado abaixo. 
+			\begin{center}
+				\includegraphics[width=.5\textwidth]{images/neuronio}
+			\end{center}
+			O objetivo da função de ativação é...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item estabelecer uma ponderação entre as entradas do neurônio.
+			\item modificar o peso numérico associada a cada entrada.
+			\item ativar a remoção dos pesos de todas as entradas.
+			\item determinar se o neurônio está ativado ou não.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 012}	
+		\begin{block}{[Q012]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.35\textwidth}
+					Admita a função de ativação de limiar para o neurônio ao lado. Admita também vetor de entrada (0,1). Este neurônio estaria...
+				\end{column}
+				\begin{column}{0.55\textwidth}
+					\begin{center}
+						\includegraphics[width=.9\textwidth]{images/neuronio-ou}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item ativado.
+			\item desativado.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 013}	
+		\begin{block}{[Q013]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.4\textwidth}
+					Admita a função de ativação de limiar para o neurônio ao lado. Admita também vetor de entrada (0,1). Este neurônio estaria...
+				\end{column}
+				\begin{column}{0.5\textwidth}
+					\begin{center}
+						\includegraphics[width=.9\textwidth]{images/neuronio-e}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item ativado.
+			\item desativado.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 014}	
+		\begin{block}{[Q014]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.4\textwidth}
+					Admita a função de ativação de limiar para o neurônio ao lado. Admita também vetor de entrada (0). Este neurônio estaria...
+				\end{column}
+				\begin{column}{0.5\textwidth}
+					\begin{center}
+						\includegraphics[width=.9\textwidth]{images/neuronio-not}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item ativado.
+			\item desativado.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 015}	
+		\begin{block}{[Q015]}
+			A aprendizagem em uma rede neural consiste...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item no reposicionamento dos neurônios dentro da rede.
+			\item na mudança da função de ativação a partir da entrada recebida.
+			\item na modificação dos valores de entrada para a rede.
+			\item no ajuste dos pesos em cada conexão.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 016}	
+		\begin{block}{[Q016]}
+			Sobre as redes neurais de múltiplas camadas, é \underline{incorreto} afirmar que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item a aprendizagem da rede é feita normalmente utilizando o algoritmo de propagação de retorno.
+			\item é possível existir uma ou várias camadas ocultas.
+			\item todos os neurônios das camadas ocultas recebem diretamente os valores de entrada.
+			\item ela é mais poderosa, em termos de classificação, do que as redes de única camada.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 006}	
+		\begin{block}{[Q006]}
+			É \underline{incorreto} afirmar sobre a árvore de busca que ela...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item represente todas as possibilidades de caminhos possíveis.
+			\item seja igual ao espaço de estados.
+			\item possa ter ramos infinitos.
+			\item tenha, em cada um de seus nós, a representação de um estado.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 007}	
+		\begin{block}{[Q007]}
+			Para avaliar o desempenho de um algoritmo de busca específico, qual aspecto não é relevante para se considerar?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item completeza
+			\item otimização
+			\item complexidade de tempo
+			\item descrição do problema
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 008}	
+		\begin{block}{[Q008]}
+			Em relação à busca cega, qual das alternativas abaixo indica a estratégia de busca que combina a busca em largura com a busca em profundidade?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item busca de custo uniforme
+			\item busca por aprofundamento iterativo
+			\item busca em profundidade limitada			
+			\item busca bidirecional
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 009}	
+		\begin{block}{[Q009]}
+			Em relação à busca cega, qual das alternativas abaixo indica a estratégia de busca que certamente \underline{não} garante a completeza?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item busca em largura
+			\item busca de custo uniforme
+			\item busca em profundidade
+			\item busca por aprofundamento iterativo
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
