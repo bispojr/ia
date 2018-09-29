@@ -1,0 +1,233 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+\usepackage[inline]{enumitem}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+ 
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+}
+
+\title{Mineração de Dados} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{28 de setembro de 2018} }
+
+\logo{\includegraphics[width=1cm]{images/ufjLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\section{Instrução pelos Colegas}
+	
+	\begin{frame}{Questão 029}	
+		\begin{block}{[Q029]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.35\textwidth}
+					Sobre a descoberta de conhecimento em banco de dados (KDD), é \underline{incorreto} afirmar que...
+				\end{column}
+				\begin{column}{0.55\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/kdd}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item KDD é uma terminologia alternativa para a mineração de dados (MD).
+			\item durante a limpeza de dados, efetua-se correções de eventuais inconsistências nos dados.
+			\item a etapa de formatação é uma terminologia alternativa para a transformação de dados.
+			\item durante a mineração de dados, são extraídas regras e padrões.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Questão 030}	
+		\begin{block}{[Q030]}
+			Quais das alternativas abaixo \underline{não} estão entre os objetivos da MD?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item previsão
+			\item identificação
+			\item classificação
+			\item formatação
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 031}	
+		\begin{block}{[Q031]}
+			Sobre o tipo de conhecimento gerado pela MD, é correto afirmar que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item é de natureza dedutiva, inferindo regras e padrões a partir dos dados fornecidos.
+			\item é de natureza indutiva, obtendo regras e padrões a partir dos dados fornecidos.
+			\item é de natureza dedutiva, pois a partir de proposições gerais obtém-se proposições específicas.
+			\item é de natureza indutiva, pois a partir de proposições gerais obtém-se proposições específicas.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 032}	
+		\begin{block}{[Q032]}
+			A diferença entre as regras de associação e os padrões sequenciais é que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item as regras de associação detectam associação entre eventos.
+			\item os padrões sequenciais detectam associação entre eventos.
+			\item os padrões sequenciais detectam associações entre eventos com certos relacionamentos temporais.
+			\item as regras de associação detectam associações entre eventos com certos relacionamentos temporais.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 033}	
+		\begin{block}{[Q033]}
+			Sobre as regras de associação, é \underline{incorreto} afirmar que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item o suporte refere-se à frequência com que um itemset específico ocorre no banco de dados.
+			\item a confiança refere-se à probabilidade de que a regra seja executada, uma vez que o LHS ocorra.
+			\item é desejável que os itemsets tenham um suporte grande.
+			\item a confiança está mais relacionada a fatores subjetivos do que objetivos em relação ao BD.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 033}	
+		\begin{block}{[Q033]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.55\textwidth}
+					Em relação à estratégia de MD chamada agrupamento, é \underline{incorreto} afirmar que...
+				\end{column}
+				\begin{column}{0.35\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/k-means}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item o representante de cada grupo é chamado de centróide.
+			\item é uma estratégia de aprendizado supervisionado.
+			\item iterações sucessivas são realizadas com o propósito de aprimorar o agrupamento.
+			\item geralmente as partições geradas são disjuntas duas a duas.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 026}	
+		\begin{block}{[Q026]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.35\textwidth}
+					Em relação à árvore de decisão ao lado, cada nó interno é nomeado como...
+				\end{column}
+				\begin{column}{0.55\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/arvoreDecisao}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item objetivos
+			\item atributos
+			\item predicados
+			\item folhas
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 027}	
+		\begin{block}{[Q027]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.45\textwidth}
+					O predicado meta, da árvore de decisão ao lado, é $VaiEsperar(s)$. Na asserção
+					\begin{center}
+						$\forall s$ $VaiEsperar(s) \leftrightarrow (P_1(s) \vee P_2(s) \vee \ldots \vee P_n(s))$
+					\end{center}
+				cada $P_i(s)$ significa...
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/arvoreDecisao}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item o conjunto de todos os nós internos da árvore de decisão.
+			\item o conjunto de todas as folhas de um determinado atributo.
+			\item um caminho da raiz até uma folha com um resultado positivo.
+			\item um caminho da raiz até um nó interno específico da árvore.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Questão 028}	
+		\begin{block}{[Q028]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.45\textwidth}
+					Sobre o fragmento da árvore de decisão ao lado, é \underline{incorreto} afirmar que...
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/testeAtributos}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item o atributo {\sf Faminto?} é um péssimo teste para o predicado.
+			\item o atributo {\sf Clientes?} é um bom teste para o predicado.
+			\item cada atributo representa os exemplos dentro de seu nó.
+			\item a resposta ``Cheio'' indetermina a decisão sobre o predicado.
+		\end{enumerate}
+	\end{frame}
+	
+	
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
