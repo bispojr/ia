@@ -1,0 +1,197 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+\usepackage[inline]{enumitem}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+ 
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+}
+
+\title{Aprendizagem a partir de Exemplos} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{21 de setembro de 2018} }
+
+\logo{\includegraphics[width=1cm]{images/ufjLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\section{Instrução pelos Colegas}
+	
+	\begin{frame}{Questão 023}	
+		\begin{block}{[Q023]}
+			A partir do tipo de realimentação, a aprendizagem de máquina costuma distinguir a aprendizagem em três casos: supervisionada, não-supervisionada e por reforço. Sobre estes casos, é \underline{incorreto} afirmar que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item a aprendizagem supervisionada exige a apresentação de pares de entrada e saída.
+			\item a aprendizagem não-supervisionada envolve a aprendizagem de padrões sem a apresentação prévia de saídas desejadas.
+			\item a aprendizagem por reforço trabalha com o {\it feedback} sobre o comportamento do agente, julgando-o desejável ou não.
+			\item todos os casos de aprendizagem estão fortemente preocupados com a representação que será usada para os componentes.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 024}	
+		\begin{block}{[Q024]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.35\textwidth}
+					Em relação aos gráficos ao lado, os pontos são considerados, na inferência indutiva pura, como...
+				\end{column}
+				\begin{column}{0.55\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/inducao01}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item exemplos
+			\item função de hipótese
+			\item função desconhecida
+			\item espaço de hipóteses
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 025}	
+		\begin{block}{[Q025]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.35\textwidth}
+					Em relação aos gráficos ao lado, as curvas dos gráficos são consideradas, na inferência indutiva pura, como...
+				\end{column}
+				\begin{column}{0.55\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/inducao01}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item exemplos
+			\item função de hipótese
+			\item função desconhecida
+			\item espaço de hipóteses
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 026}	
+		\begin{block}{[Q026]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.35\textwidth}
+					Em relação à árvore de decisão ao lado, cada nó interno é nomeado como...
+				\end{column}
+				\begin{column}{0.55\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/arvoreDecisao}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item objetivos
+			\item atributos
+			\item predicados
+			\item folhas
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 027}	
+		\begin{block}{[Q027]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.45\textwidth}
+					O predicado meta, da árvore de decisão ao lado, é $VaiEsperar(s)$. Na asserção
+					\begin{center}
+						$\forall s$ $VaiEsperar(s) \leftrightarrow (P_1(s) \vee P_2(s) \vee \ldots \vee P_n(s))$
+					\end{center}
+				cada $P_i(s)$ significa...
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/arvoreDecisao}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item o conjunto de todos os nós internos da árvore de decisão.
+			\item o conjunto de todas as folhas de um determinado atributo.
+			\item um caminho da raiz até uma folha com um resultado positivo.
+			\item um caminho da raiz até um nó interno específico da árvore.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Questão 028}	
+		\begin{block}{[Q028]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.45\textwidth}
+					Sobre o fragmento da árvore de decisão ao lado, é \underline{incorreto} afirmar que...
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/testeAtributos}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item o atributo {\sf Faminto?} é um péssimo teste para o predicado.
+			\item o atributo {\sf Clientes?} é um bom teste para o predicado.
+			\item cada atributo representa os exemplos dentro de seu nó.
+			\item a resposta ``Cheio'' indetermina a decisão sobre o predicado.
+		\end{enumerate}
+	\end{frame}
+	
+	
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
