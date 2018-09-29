@@ -1,0 +1,172 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+\usepackage[inline]{enumitem}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+ 
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+}
+
+\title{Busca Local e Problemas de Otimização} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{15 de setembro de 2018} }
+
+\logo{\includegraphics[width=1cm]{images/ufjLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\section{Instrução pelos Colegas}
+	
+	\begin{frame}{Questão 017}	
+		\begin{block}{[Q017]}
+			Sobre os algoritmos de busca local, é \underline{incorreto} afirmar que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item são bastante utilizados em aplicações comerciais e industriais.
+			\item encontram soluções razoáveis em grandes espaços de estados.
+			\item usam pouquíssima memória, quase sempre um valor constante.
+			\item costumam guardar na memória o caminho que leva até à solução do problema.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 018}	
+		\begin{block}{[Q018]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.35\textwidth}
+					O gráfico ao lado apresenta uma topologia de estados unidimensional. O algoritmo de busca de subida de encosta, na topologia ao lado, garante...
+				\end{column}
+				\begin{column}{0.55\textwidth}
+					\begin{center}
+						\includegraphics[width=1.0\textwidth]{images/topologia}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item sempre alcançar um máximo global.
+			\item sempre alcançar um máximo local.
+			\item sempre alcançar um mínimo global.
+			\item sempre alcançar um mínimo local.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Questão 019}	
+		\begin{block}{[Q019]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.55\textwidth}
+					É possível utilizar um algoritmo de busca local para o problema das 8 rainhas. A figura ao lado temos uma disposição de 8 rainhas, sendo uma em cada coluna. Os valores numéricos dispostos nas casas representam...
+				\end{column}
+				\begin{column}{0.35\textwidth}
+					\begin{center}
+						\includegraphics[width=0.9\textwidth]{images/8-rainhas-h}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item o valor da função heurística para o estado sucessor, havendo a mudança da rainha.
+			\item o valor da função objetivo para o estado sucessor, havendo a mudança da rainha.
+			\item o valor da função heurística para o estado atual.
+			\item o valor da função objetivo para o estado atual.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Questão 020}	
+		\begin{block}{[Q020]}
+			A busca da têmpera simulada difere da busca de subida de encosta em relação...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item ao cálculo da função objetivo e da função heurística.
+			\item em relação aos critérios de desempenho, pois a busca gulosa local é ótima e completa.
+			\item à possibilidade de permitir fazer movimentos para estados com valores mais baixos.
+			\item ao ser mais precisa, pois não permite elementos randômicos. 
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Questão 021}	
+		\begin{block}{[Q021]}
+			\begin{columns}
+				\begin{column}{0.05\textwidth}\end{column}
+				\begin{column}{0.45\textwidth}
+					A figura ao lado apresenta uma ilustração da execução do algoritmo de busca em feixe local. Em relação à busca gulosa local e à têmpera simulada, este algoritmo tem desempenho pior mais fortemente em relação...
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\begin{center}
+						\includegraphics[width=0.9\textwidth]{images/feixe-local}
+					\end{center}
+				\end{column}
+				\begin{column}{0.05\textwidth}\end{column}
+			\end{columns}
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item ao consumo de memória.
+			\item à qualidade das soluções obtidas.
+			\item à otimalidade da solução.
+			\item à completeza do problema.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Questão 022}	
+		\begin{block}{[Q022]}
+			\begin{center}
+				\includegraphics[width=0.8\textwidth]{images/ag}
+			\end{center}
+			A figura acima ilustra alguns dos principais elementos de um algoritmo genético (AG). É \underline{incorreto} afirmar sobre o AG que...
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item o tamanho da população permanece fixa ao longo do processo.
+			\item na etapa de seleção, as melhores soluções são escolhidas.
+			\item o cruzamento é realizado apenas com os melhores indivíduos.
+			\item a mutação modifica todas as informações de um indivíduo.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
