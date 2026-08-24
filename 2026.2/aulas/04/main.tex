@@ -1,0 +1,270 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+
+\usepackage{enumitem}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+ 
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+}
+
+\title{Introdução à Inteligência Artificial}  
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufj.edu.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{19 de agosto de 2026} }
+
+\logo{\includegraphics[width=1.5cm]{images/ufjJataiLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\begin{frame}{Plano de Aula}
+		\tableofcontents
+		%\tableofcontents[hideallsubsections]
+	\end{frame}
+	
+	\section{Instrução pelos Colegas}
+	
+
+    \begin{frame}{Pesquisa 001}
+		\begin{block}{[P001]}
+			Como foi a leitura do estudo prévio?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item Boa leitura
+			\item Leitura razoável
+			\item Difícil de ler
+			\item Não consegui ler
+		\end{enumerate}
+	\end{frame}
+    
+\section{Conceitos Básicos}
+\subsection{O que é Inteligência Artificial?}
+
+        \begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Kurweil, 1990}
+			``A arte de criar máquinas que executam funções que exigem inteligência quando executadas por pessoas''
+		\end{block} \pause
+		\begin{exampleblock}{Agir de forma humana}
+			Teste de Turing
+		\end{exampleblock}
+	\end{frame}
+        
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{itemize}
+			\item Pensar {\it versus} \underline{Agir}
+			 \item \underline{Forma humana} {\it versus} Forma racional %\pause
+			% 	\begin{itemize}
+   %                      \item Agir de forma humana
+			% 		\item Pensar de forma humana
+			% 		\item Pensar de forma racional
+			% 		\item Agir de forma racional
+			% 	\end{itemize}
+		\end{itemize}
+	\end{frame}        
+
+        \begin{frame}{Questão 001}
+		\begin{block}{[Q001]}
+			Qual dos exemplos abaixo {\bf melhor} ilustra o conceito de inteligência artificial vinculado ao \underline{agir de forma humana}?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+		      \item Um dispositivo eletrônico que simula o comportamento interno da mente humana.
+			\item Um bichinho virtual que se comporta como um gato de estimação em um alto nível de realismo.	
+                \item Um {\it chatbot} que sempre responde de forma correta a uma pergunta feita para ele.
+			\item Os lutadores de um jogo de {\it videogame} que se cansam à medida que a luta vai chegando ao último {\it round}.
+			
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Haugeland, 1985}
+			``O novo e interessante esforço para fazer os computadores pensarem... máquinas com mentes, no sentido total e literal''
+		\end{block} \pause
+		\begin{exampleblock}{Pensar de forma humana}
+			Modelagem cognitiva
+		\end{exampleblock}
+	\end{frame}
+
+        \begin{frame}{O que é Inteligência Artificial?}
+		\begin{itemize}
+			\item \underline{Pensar} {\it versus} Agir
+			 \item \underline{Forma humana} {\it versus} Forma racional %\pause
+			% 	\begin{itemize}
+   %                      \item Agir de forma humana
+			% 		\item Pensar de forma humana
+			% 		\item Pensar de forma racional
+			% 		\item Agir de forma racional
+			% 	\end{itemize}
+		\end{itemize}
+	\end{frame} 
+
+         \begin{frame}{Questão 002}
+		\begin{block}{[Q002]}
+			Qual dos exemplos abaixo {\bf melhor} ilustra o conceito de inteligência artificial vinculado ao \underline{pensar de forma humana}?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item Um bot projetado especificamente para jogar xadrez.
+			\item Uma interface gráfica que sinaliza por meio de sorrisos quando uma resposta esperada é informada pelo usuário.
+			\item Um neurônio artificial que simula processos de funcionamento da mente humana.
+			\item Um demonstrador automático de teoremas em Teoria de Grafos.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Charniak e McDermott, 1985}
+			``O estudo das faculdades mentais pelo uso de modelos computacionais''
+		\end{block}\pause
+		\begin{exampleblock}{Pensar de forma racional}
+			Lógica e Inferência
+		\end{exampleblock}
+	\end{frame}
+
+        \begin{frame}{O que é Inteligência Artificial?}
+		\begin{itemize}
+			\item \underline{Pensar} {\it versus} Agir
+			 \item Forma humana {\it versus} \underline{Forma racional} %\pause
+			% 	\begin{itemize}
+   %                      \item Agir de forma humana
+			% 		\item Pensar de forma humana
+			% 		\item Pensar de forma racional
+			% 		\item Agir de forma racional
+			% 	\end{itemize}
+		\end{itemize}
+	\end{frame} 
+
+         \begin{frame}{Questão 003}
+		\begin{block}{[Q003]}
+			Qual dos exemplos abaixo {\bf melhor} ilustra o conceito de inteligência artificial vinculado ao \underline{pensar de forma racional}?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item Um dispositivo eletrônico que simula o comportamento interno da mente humana.
+			\item Um bichinho virtual que se comporta como um gato de estimação em um alto nível de realismo.	
+                \item Um {\it chatbot} verificador de {\it fake news}.
+			\item Os lutadores de um jogo de {\it videogame} que se cansam à medida que a luta vai chegando ao último {\it round}.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Poole {\it et al.}, 1998}
+			``A Inteligência Computacional é o estudo do projeto de agentes inteligentes''
+		\end{block}\pause
+		\begin{exampleblock}{Agir de forma racional}
+			Agentes racionais
+		\end{exampleblock}
+	\end{frame}
+
+         \begin{frame}{O que é Inteligência Artificial?}
+		\begin{itemize}
+			\item Pensar {\it versus} \underline{Agir}
+			 \item Forma humana {\it versus} \underline{Forma racional} %\pause
+			% 	\begin{itemize}
+   %                      \item Agir de forma humana
+			% 		\item Pensar de forma humana
+			% 		\item Pensar de forma racional
+			% 		\item Agir de forma racional
+			% 	\end{itemize}
+		\end{itemize}
+	\end{frame} 
+
+         \begin{frame}{Questão 004}
+		\begin{block}{[Q004]}
+			Qual dos exemplos abaixo {\bf melhor} ilustra o conceito de inteligência artificial vinculado ao \underline{agir de forma racional}?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item Um bot projetado especificamente para jogar xadrez.
+			\item Uma interface gráfica que sinaliza por meio de sorrisos quando uma resposta esperada é informada pelo usuário.
+			\item Um neurônio artificial que simula processos de funcionamento da mente humana.
+			\item Um demonstrador automático de teoremas em Teoria de Grafos.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Resumo das definições}
+			\begin{tabular}{c|cc}
+								& {\bf Humano} 			& {\bf Racionalidade} \\
+				\hline
+				{\bf Pensamento}		& Sistemas que pensam	& Sistemas que pensam \\
+										& como seres humamos	& racionalmente \\
+				\hline
+				{\bf Comportamento}		& Sistemas que agem 	& Sistemas que agem\\
+										& como seres humanos	& racionalmente\\
+				\hline
+			\end{tabular}
+		\end{block}				
+	\end{frame}
+	
+	\begin{frame}{O que é Inteligência Artificial?}
+		\begin{block}{Resumo das definições}
+			\begin{tabular}{c|cc}
+										& {\bf Humano} 			& {\bf Racionalidade} \\
+				\hline
+				{\bf Pensamento}		& Sistemas que pensam	& Sistemas que pensam \\
+										& como seres humanos	& racionalmente \\
+				\hline
+				{\bf Comportamento}		& Sistemas que agem 	& {\color{blue} Sistemas que agem}\\
+										& como seres humanos	& {\color{blue}racionalmente}\\
+				\hline
+			\end{tabular}
+		\end{block}	
+		\begin{exampleblock}{Definição utilizada na disciplina}
+			Sistemas que agem racionalmente
+		\end{exampleblock}					
+	\end{frame}
+
+    \section{Desafio}
+    \begin{frame}{Desafio}
+        \begin{block}{D01 | Apresentação de Artigo (26/08)}
+            Fazer uma apresentação de 10 minutos sobre o artigo seminal de Turing (1950) apresentando o Jogo da Imitação.
+        \end{block} 
+        \begin{block}{Rubrica}
+            | Conteúdo | Organização | Recursos Visuais | \\
+            | Postura e Linguagem | Controle do Tempo | Comprometimento |        
+        \end{block}
+        \begin{block}{Referência}
+            Turing, A. M. (1950). Computing machinery and intelligence. {\bf Mind}, 59(236), 33-60. \url{https://ebiquity.umbc.edu/_file_directory_/papers/1389.pdf}
+        \end{block}
+    \end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
