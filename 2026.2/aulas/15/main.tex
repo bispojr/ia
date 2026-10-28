@@ -1,0 +1,182 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+\usepackage{tikz}
+
+\usepackage{enumitem}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+ 
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+}
+
+\title{Algoritmos Genéticos (Parte I)}  
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufj.edu.br}
+  } 
+ \institute{
+  Inteligência Artificial \\Bacharelado em Ciência da Computação}
+\date{\textbf{23 de setembro de 2026} }
+
+\logo{\includegraphics[width=1.5cm]{images/ufjJataiLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\begin{frame}{Plano de Aula}
+		\tableofcontents
+		%\tableofcontents[hideallsubsections]
+	\end{frame}
+	
+	\section{Instrução pelos Colegas}
+	
+
+    \begin{frame}{Pesquisa 0015}
+		\begin{block}{[P015]}
+			Como foi o estudo prévio?
+		\end{block}
+		\begin{enumerate}[label=(\Alph*)]
+			\item Bom
+			\item Razoável
+			\item Difícil de entender
+			\item Não consegui estudar
+		\end{enumerate}
+	\end{frame}
+
+    \section{Representação, população e fitness}
+
+    \begin{frame}{Algoritmo genético: evoluir soluções}
+
+    \begin{block}{População}
+        Um problema é representado por um conjunto de indivíduos.
+        
+        \medskip
+        
+        Cada indivíduo representa uma \textbf{solução potencial}
+        para o problema.
+    \end{block}
+
+    \begin{center}
+        \Large
+        \boxed{\text{População} = \{\text{soluções candidatas}\}}
+    \end{center}
+
+    \begin{block}{Ideia central}
+        Em vez de trabalhar com uma única solução, o algoritmo
+        mantém \textbf{várias soluções simultaneamente}.
+    \end{block}
+
+    \end{frame}
+
+    \begin{frame}{Cromossomo: representar uma solução}
+
+    \begin{block}{Cromossomo}
+        É a representação de um indivíduo no problema.
+
+        \medskip
+
+        A representação mais comum é uma sequência de bits:
+        \[
+        0\quad 1\quad 1\quad 0\quad 1\quad 0
+        \]
+    \end{block}
+
+    \begin{block}{Mas não existe uma única representação}
+        Para o problema das oito rainhas, por exemplo, podemos
+        representar a \textbf{linha ocupada pela rainha em cada coluna}.
+    \end{block}
+
+    \begin{center}
+        \Large
+        \boxed{\text{Indivíduo} \longleftrightarrow \text{Cromossomo}}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}{Fitness: quão boa é a solução?}
+
+    \begin{block}{Função de fitness}
+        Mede o quanto um indivíduo está \textbf{bem adaptado}
+        ao problema.
+    \end{block}
+
+    \begin{center}
+        \Large
+        \[
+        \boxed{\text{indivíduo} \xrightarrow{\text{fitness}}
+        \text{qualidade}}
+        \]
+    \end{center}
+
+    \begin{block}{Exemplo}
+        No problema das oito rainhas, o fitness pode ser definido
+        a partir do número de conflitos entre as rainhas.
+    \end{block}
+
+    \begin{center}
+        \textbf{Melhor indivíduo} $\Rightarrow$ maior fitness
+    \end{center}
+
+\end{frame}
+
+\begin{frame}{Questão 013}
+
+    \begin{block}{[Q013]}
+        Um problema possui duas soluções candidatas, $A$ e $B$. A solução $A$ está mais próxima da solução desejada segundo a medida usada pelo problema, mas seu fitness é menor que o de $B$.
+
+        O que isso indica sobre o algoritmo?
+    \end{block}
+
+    \begin{enumerate}[label=(\Alph*)]
+
+        \item A solução $A$ necessariamente será selecionada, pois está mais próxima da resposta final.
+
+        \item O fitness precisa refletir adequadamente o critério usado para determinar quais indivíduos são mais adaptados.
+
+        \item A solução $B$ deve ser descartada porque não representa a solução exata do problema.
+
+        \item O algoritmo genético não pode trabalhar com uma medida de qualidade diferente da representação do indivíduo.
+
+    \end{enumerate}
+
+\end{frame}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
